@@ -9,7 +9,6 @@
         Title="Window2"
         Height="450"
         Width="800"
-        Loaded="Window_Loaded"
         Background="Transparent"
         WindowStyle="None"
         AllowsTransparency="True"
@@ -25,22 +24,6 @@
         </WindowChrome>
     </WindowChrome.WindowChrome>
 
-    <Window.Resources>
-        <Style TargetType="materialDesign:PackIcon"
-               x:Key="IconStyle">
-            <Setter Property="Foreground"
-                    Value="Gray" />
-            <Setter Property="Margin"
-                    Value="5 0" />
-            <Setter Property="Width"
-                    Value="25" />
-            <Setter Property="Height"
-                    Value="25" />
-            <Setter Property="Background"
-                    Value="Transparent" />
-        </Style>
-
-    </Window.Resources>
 
     <Border CornerRadius="5 5 0 0"
             Background="#fff"
@@ -59,7 +42,6 @@
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="60" />
-                <RowDefinition Height="80" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
@@ -74,7 +56,7 @@
                            Foreground="#fff"
                            VerticalAlignment="Center"
                            HorizontalAlignment="Center"
-                           FontSize="20"/>
+                           FontSize="20" />
 
                     <!--<materialDesign:PackIcon Kind="ArrowLeft"
                                              Name="btnArrowLeft"
@@ -101,7 +83,6 @@
             </Border>
 
             <Border Grid.Row="1"
-                    Grid.RowSpan="2"
                     Background="#171E45">
                 <StackPanel Margin="8">
                     <StackPanel.Resources>
@@ -123,36 +104,48 @@
                         <materialDesign:PackIcon Kind="PackageVariantClosed"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Товары"
+                                     Tag="1"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
                     <Grid>
                         <materialDesign:PackIcon Kind="GiftOutline"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Продажи"
+                                     Tag="2"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
                     <Grid>
                         <materialDesign:PackIcon Kind="PackageDown"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Заказы"
+                                     Tag="3"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
                     <Grid>
                         <materialDesign:PackIcon Kind="Account"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Сотрудники"
+                                     Tag="4"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
                     <Grid>
                         <materialDesign:PackIcon Kind="AccountConvert"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Поставщики"
+                                     Tag="5"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
                     <Grid>
                         <materialDesign:PackIcon Kind="FileChart"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Отчеты"
+                                     Tag="6"
+                                     Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
 
@@ -229,7 +222,7 @@
                                         <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=iconWindowClose}"
                                                      Value="true">
                                             <Setter Property="Foreground"
-                                                    Value="#000" />
+                                                    Value="Red" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
@@ -241,80 +234,12 @@
 
             </Border>
 
-            <StackPanel Grid.Column="1"
-                        Grid.Row="1"
-                        Orientation="Horizontal"
-                        Margin="20">
-                <Border Margin="20 0"
-                        BorderBrush="gray"
-                        BorderThickness="1"
-                        CornerRadius="5">
-                    <Label Content="Товары"
-                           FontSize="15"
-                           VerticalContentAlignment="Center" />
-                </Border>
+            <Frame x:Name="mainFrame"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   NavigationUIVisibility="Hidden"/>
 
-                <!--#region Searcher-->
-                <Border Background="#F0F3F5"
-                        CornerRadius="5"
-                        Margin="20 0 0 0">
-                    <StackPanel Orientation="Horizontal">
-                        <materialDesign:PackIcon Kind="Search"
-                                                 VerticalAlignment="Center"
-                                                 Width="24"
-                                                 Height="24"
-                                                 Margin="10 0 0 0"
-                                                 Foreground="Gray" />
 
-                        <TextBox VerticalAlignment="Center"
-                                 x:Name="CommentTextBox"
-                                 Height="30"
-                                 Width="200"
-                                 BorderBrush="#F6F7F8"
-                                 materialDesign:HintAssist.Hint="Поиск"
-                                 materialDesign:HintAssist.Foreground="#535353"
-                                 materialDesign:TextFieldAssist.UnderlineBrush="#252D53"
-                                 Padding="30 0 0 0"
-                                 Margin="-25 0 0 0"
-                                 VerticalContentAlignment="Center"
-                                 materialDesign:TextFieldAssist.HasClearButton="True"
-                                 TextChanged="CommentTextBox_TextChanged" />
-                    </StackPanel>
-                </Border>
-                <!--#endregion-->
-
-                <DockPanel VerticalAlignment="Center">
-                    <StackPanel HorizontalAlignment="Right"
-                                Orientation="Horizontal">
-                        <Button Content="Изменить" />
-                        <Button Content="+"
-                                Width="25" />
-                        <Button Content="-"
-                                Width="25" />
-
-                    </StackPanel>
-                </DockPanel>
-
-            </StackPanel>
-            
-
-            <DataGrid Grid.Row="2"
-                      Grid.Column="1"
-                      x:Name="main_data_grid"
-                      ColumnWidth="*"
-                      MinRowHeight="18"
-                      IsReadOnly="True"
-                      SelectionMode="Single"
-                      Background="Transparent"
-                      BorderBrush="#89BB82  "
-                      RowBackground="#C8DE95 "
-                      AlternatingRowBackground="Transparent"
-                      HorizontalGridLinesBrush="#4F8B5C   "
-                      FontSize="12"
-                      Grid.RowSpan="2"
-                      GridLinesVisibility="Horizontal">
-
-            </DataGrid>
 
         </Grid>
     </Border>

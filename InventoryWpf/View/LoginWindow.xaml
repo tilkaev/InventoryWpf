@@ -52,8 +52,7 @@
                       Width="240"
                       Height="30"
                       Background="#fff"
-                      Padding="10 0 10 0">
-            </ComboBox>
+                      Padding="10 0 10 0" />
 
             <PasswordBox Grid.Row="3"
                          BorderThickness="0"

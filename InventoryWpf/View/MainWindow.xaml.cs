@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWpf.Core;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
@@ -22,22 +23,18 @@ namespace InventoryWpf
 
     public partial class MainWindow : Window
     {
+        PagesController pagesController;
+
+
         public MainWindow()
+
         {
             InitializeComponent();
+            pagesController = new PagesController(mainFrame);
+            pagesController.NewPage(new PageInventory());
+
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-            var inquiry = @"select товары.идтовара, товары.название Название, категориитоваров.название Категория, товары.колвонаскладе 'Кол-во на складе'  from товары, категориитоваров
-where товары.идкатегории = категориитоваров.идкатегории";
-
-            SQL.SQLConnect();
-            DataTable dt = SQL.Inquiry(inquiry);
-            SQL.Close();
-            main_data_grid.ItemsSource = dt.AsDataView();
-            main_data_grid.Columns[0].Visibility = Visibility.Collapsed; // Скрываем первый столбец с ID
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -80,5 +77,22 @@ where товары.идкатегории = категориитоваров.и�
         {
             Environment.Exit(0);
         }
+
+        private void Button_ClickCreatePage(object sender, RoutedEventArgs e)
+        {
+            int indexButton = int.Parse(((RadioButton)sender).Tag.ToString());
+            switch (indexButton)
+            {
+                case 1:
+                    pagesController.NewPage(new PageInventory());
+                    break;
+                case 2:
+                    pagesController.NewPage(new PageInventory());
+                    break;
+            }
+
+        }
+
+        
     }
 }
