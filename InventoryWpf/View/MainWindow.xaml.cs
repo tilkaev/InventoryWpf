@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace InventoryWpf
     /// <summary>
     /// Логика взаимодействия для Window2.xaml
     /// </summary>
+
     public partial class MainWindow : Window
     {
         public MainWindow()
@@ -27,7 +29,6 @@ namespace InventoryWpf
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
             var inquiry = @"select товары.идтовара, товары.название Название, категориитоваров.название Категория, товары.колвонаскладе 'Кол-во на складе'  from товары, категориитоваров
 where товары.идкатегории = категориитоваров.идкатегории";
 
@@ -50,6 +51,34 @@ where товары.идкатегории = категориитоваров.и�
             {
                 this.DragMove();
             }
+        }
+
+        private void CommentTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
+        private void btnWindowMinimize_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        private void btnWindowMaximized_Click(object sender, RoutedEventArgs e)
+        {
+            if (this.WindowState == WindowState.Maximized)
+            {
+                this.WindowState = WindowState.Normal;
+            }
+            else
+            {
+                this.WindowState = WindowState.Maximized;
+            }
+        }
+
+        private void btnWindowClose_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

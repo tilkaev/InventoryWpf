@@ -42,10 +42,6 @@ namespace InventoryWpf
             passwordBox.Password = "admin";
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void MoveWindow(object sender, MouseButtonEventArgs e)
         {

@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:InventoryWpf"
         mc:Ignorable="d"
         Title="Window2"
@@ -13,29 +14,33 @@
         WindowStyle="None"
         AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
-        ResizeMode="NoResize">
+        MinWidth="600"
+        MinHeight="350">
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome CaptionHeight="1"
+                      CornerRadius="0"
+                      ResizeBorderThickness="4"
+                      GlassFrameThickness="0">
+        </WindowChrome>
+    </WindowChrome.WindowChrome>
 
     <Window.Resources>
-        <Style TargetType="Button">
+        <Style TargetType="materialDesign:PackIcon"
+               x:Key="IconStyle">
+            <Setter Property="Foreground"
+                    Value="Gray" />
             <Setter Property="Margin"
-                    Value="5" />
-            <Setter Property="Height"
-                    Value="25" />
-        </Style>
-
-        <Style TargetType="TextBox">
-            <Setter Property="Margin"
-                    Value="5" />
-            <Setter Property="Height"
-                    Value="25" />
+                    Value="5 0" />
             <Setter Property="Width"
-                    Value="120" />
+                    Value="25" />
+            <Setter Property="Height"
+                    Value="25" />
             <Setter Property="Background"
-                    Value="gray " />
+                    Value="Transparent" />
         </Style>
 
     </Window.Resources>
-
 
     <Border CornerRadius="5 5 0 0"
             Background="#fff"
@@ -48,12 +53,13 @@
 
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="140" />
+                <ColumnDefinition Width="150" />
                 <ColumnDefinition />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="80" />
                 <RowDefinition />
             </Grid.RowDefinitions>
 
@@ -64,56 +70,235 @@
                     BorderBrush="#252D53">
                 <Grid>
 
-                    <Label Content="Logo"
+                    <Label Content="Спектр Склад"
                            Foreground="#fff"
                            VerticalAlignment="Center"
-                           Margin="10 0 0 0" />
+                           HorizontalAlignment="Center"
+                           FontSize="20"/>
 
-                    <RadioButton Content="&lt;--"
-                                 VerticalAlignment="Center"
-                                 HorizontalAlignment="Right"
-                                 Margin="0 0 10 0"
-                                 Width="50"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    <!--<materialDesign:PackIcon Kind="ArrowLeft"
+                                             Name="btnArrowLeft"
+                                             VerticalAlignment="Center"
+                                             HorizontalAlignment="Right"
+                                             Margin="0 0 -5 0"
+                                             Width="60">
+                        <materialDesign:PackIcon.Style>
+                            <Style BasedOn="{StaticResource ResourceKey=IconStyle}"
+                                   TargetType="materialDesign:PackIcon">
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=btnArrowLeft}"
+                                                 Value="true">
+                                        <Setter Property="Foreground"
+                                                Value="#fff" />
+                                    </DataTrigger>
+
+                                </Style.Triggers>
+                            </Style>
+                        </materialDesign:PackIcon.Style>
+                    </materialDesign:PackIcon>-->
+
                 </Grid>
             </Border>
 
-
             <Border Grid.Row="1"
+                    Grid.RowSpan="2"
                     Background="#171E45">
-                <StackPanel Margin="5">
-                    <RadioButton Content="Товары"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
-                    <RadioButton Content="Продажи"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
-                    <RadioButton Content="Заказы"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
-                    <RadioButton Content="Сотрудники"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
-                    <RadioButton Content="Поставщики"
-                                 Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                <StackPanel Margin="8">
+                    <StackPanel.Resources>
+                        <Style BasedOn="{StaticResource IconStyle}"
+                               TargetType="materialDesign:PackIcon"
+                               x:Key="IconStyleLeft">
+                            <Setter Property="VerticalAlignment"
+                                    Value="Center" />
+                            <Setter Property="HorizontalAlignment"
+                                    Value="Left" />
+                            <Setter Property="Margin"
+                                    Value="5 10 0 0" />
+                            <Setter Property="Foreground"
+                                    Value="#fff" />
+                        </Style>
+                    </StackPanel.Resources>
+
+                    <Grid>
+                        <materialDesign:PackIcon Kind="PackageVariantClosed"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Товары"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="GiftOutline"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Продажи"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="PackageDown"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Заказы"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="Account"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Сотрудники"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="AccountConvert"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Поставщики"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+                    <Grid>
+                        <materialDesign:PackIcon Kind="FileChart"
+                                                 Style="{StaticResource IconStyleLeft}" />
+                        <RadioButton Content="Отчеты"
+                                     Template="{StaticResource ResourceKey=LeftMenuButton}" />
+                    </Grid>
+
                 </StackPanel>
             </Border>
 
-            <DockPanel Grid.Column="1">
-                <TextBlock Text="Поиск:"
-                           VerticalAlignment="Center" />
-                <TextBox />
+            <Border Grid.Column="1"
+                    MouseDown="MoveWindow"
+                    Background="Transparent"
+                    BorderThickness="0 0 0 1"
+                    BorderBrush="#EDEEF1">
 
-                <StackPanel HorizontalAlignment="Right"
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Right"
                             VerticalAlignment="Center"
-                            Orientation="Horizontal">
-                    <Button Content="Изменить" />
-                    <Button Content="+"
-                            Width="25" />
-                    <Button Content="-"
-                            Width="25" />
+                            Margin="0 0 20 0">
+
+                    <Button x:Name="btnWindowMinimize"
+                            Style="{x:Null}"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Click="btnWindowMinimize_Click">
+                        <materialDesign:PackIcon Kind="WindowMinimize"
+                                                 Name="iconWindowMinimize">
+                            <materialDesign:PackIcon.Style>
+                                <Style BasedOn="{StaticResource ResourceKey=IconStyle}"
+                                       TargetType="materialDesign:PackIcon">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=iconWindowMinimize}"
+                                                     Value="true">
+                                            <Setter Property="Foreground"
+                                                    Value="#000" />
+                                        </DataTrigger>
+
+                                    </Style.Triggers>
+                                </Style>
+                            </materialDesign:PackIcon.Style>
+                        </materialDesign:PackIcon>
+                    </Button>
+
+                    <Button x:Name="btnWindowRestore"
+                            Style="{x:Null}"
+                            Click="btnWindowMaximized_Click"
+                            Background="Transparent"
+                            BorderThickness="0">
+                        <materialDesign:PackIcon Kind="WindowRestore"
+                                                 Name="iconWindowRestore">
+                            <materialDesign:PackIcon.Style>
+                                <Style BasedOn="{StaticResource ResourceKey=IconStyle}"
+                                       TargetType="materialDesign:PackIcon">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=iconWindowRestore}"
+                                                     Value="true">
+                                            <Setter Property="Foreground"
+                                                    Value="#000" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </materialDesign:PackIcon.Style>
+                        </materialDesign:PackIcon>
+                    </Button>
+
+                    <Button x:Name="btnWindowClose"
+                            Style="{x:Null}"
+                            Click="btnWindowClose_Click"
+                            Background="Transparent"
+                            BorderThickness="0">
+                        <materialDesign:PackIcon Kind="WindowClose"
+                                                 Name="iconWindowClose">
+                            <materialDesign:PackIcon.Style>
+                                <Style BasedOn="{StaticResource ResourceKey=IconStyle}"
+                                       TargetType="materialDesign:PackIcon">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsMouseOver, ElementName=iconWindowClose}"
+                                                     Value="true">
+                                            <Setter Property="Foreground"
+                                                    Value="#000" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </materialDesign:PackIcon.Style>
+                        </materialDesign:PackIcon>
+                    </Button>
 
                 </StackPanel>
-            </DockPanel>
 
+            </Border>
 
-            <DataGrid Grid.Row="1"
+            <StackPanel Grid.Column="1"
+                        Grid.Row="1"
+                        Orientation="Horizontal"
+                        Margin="20">
+                <Border Margin="20 0"
+                        BorderBrush="gray"
+                        BorderThickness="1"
+                        CornerRadius="5">
+                    <Label Content="Товары"
+                           FontSize="15"
+                           VerticalContentAlignment="Center" />
+                </Border>
+
+                <!--#region Searcher-->
+                <Border Background="#F0F3F5"
+                        CornerRadius="5"
+                        Margin="20 0 0 0">
+                    <StackPanel Orientation="Horizontal">
+                        <materialDesign:PackIcon Kind="Search"
+                                                 VerticalAlignment="Center"
+                                                 Width="24"
+                                                 Height="24"
+                                                 Margin="10 0 0 0"
+                                                 Foreground="Gray" />
+
+                        <TextBox VerticalAlignment="Center"
+                                 x:Name="CommentTextBox"
+                                 Height="30"
+                                 Width="200"
+                                 BorderBrush="#F6F7F8"
+                                 materialDesign:HintAssist.Hint="Поиск"
+                                 materialDesign:HintAssist.Foreground="#535353"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#252D53"
+                                 Padding="30 0 0 0"
+                                 Margin="-25 0 0 0"
+                                 VerticalContentAlignment="Center"
+                                 materialDesign:TextFieldAssist.HasClearButton="True"
+                                 TextChanged="CommentTextBox_TextChanged" />
+                    </StackPanel>
+                </Border>
+                <!--#endregion-->
+
+                <DockPanel VerticalAlignment="Center">
+                    <StackPanel HorizontalAlignment="Right"
+                                Orientation="Horizontal">
+                        <Button Content="Изменить" />
+                        <Button Content="+"
+                                Width="25" />
+                        <Button Content="-"
+                                Width="25" />
+
+                    </StackPanel>
+                </DockPanel>
+
+            </StackPanel>
+            
+
+            <DataGrid Grid.Row="2"
                       Grid.Column="1"
                       x:Name="main_data_grid"
                       ColumnWidth="*"
@@ -126,16 +311,10 @@
                       AlternatingRowBackground="Transparent"
                       HorizontalGridLinesBrush="#4F8B5C   "
                       FontSize="12"
+                      Grid.RowSpan="2"
                       GridLinesVisibility="Horizontal">
 
-
-
             </DataGrid>
-
-
-
-
-
 
         </Grid>
     </Border>
