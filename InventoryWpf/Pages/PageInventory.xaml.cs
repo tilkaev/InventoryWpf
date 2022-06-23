@@ -46,7 +46,8 @@ where товары.идкатегории = категориитоваров.и�
 
 
         }
-
+        
+        
         private void Search_Changed(object sender, object e)
         {
             string textToFind1 = SearchTextBox.Text;
