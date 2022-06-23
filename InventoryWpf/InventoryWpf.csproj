@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Core\PagesController.cs" />
+    <Compile Include="Core\SearcherDataTable.cs" />
     <Compile Include="Pages\PageInventory.xaml.cs">
       <DependentUpon>PageInventory.xaml</DependentUpon>
     </Compile>
