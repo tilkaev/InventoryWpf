@@ -58,13 +58,14 @@
                              Margin="-25 0 10 0"
                              VerticalContentAlignment="Center"
                              materialDesign:TextFieldAssist.HasClearButton="True"
-                             TextChanged="SearchTextBox_TextChanged" />
+                             TextChanged="Search_Changed" />
                 </StackPanel>
             </Border>
             <!--#endregion-->
 
             <ComboBox materialDesign:TextFieldAssist.PrefixText="Категория:  "
                       materialDesign:TextFieldAssist.UnderlineBrush="#252D53"
+                      materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       Grid.Row="1"
                       VerticalContentAlignment="Center"
@@ -73,7 +74,7 @@
                       Height="30"
                       Background="#fff"
                       Padding="0 0 10 0"
-                      SelectionChanged="comboBoxCategory_SelectionChanged"/>
+                      SelectionChanged="Search_Changed"/>
 
             <StackPanel HorizontalAlignment="Right"
                         Orientation="Horizontal">
