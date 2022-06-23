@@ -66,10 +66,13 @@
     </ApplicationDefinition>
     <Compile Include="Core\PagesController.cs" />
     <Compile Include="Core\SearcherDataTable.cs" />
-    <Compile Include="Pages\PageInventory.xaml.cs">
-      <DependentUpon>PageInventory.xaml</DependentUpon>
+    <Compile Include="Pages\PageProdacts.xaml.cs">
+      <DependentUpon>PageProdacts.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
+    <Compile Include="View\AddEditProduct.xaml.cs">
+      <DependentUpon>AddEditProduct.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
@@ -82,11 +85,15 @@
     <Compile Include="View\Window4.xaml.cs">
       <DependentUpon>Window4.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\PageInventory.xaml">
+    <Page Include="Pages\PageProdacts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Theme\IconStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AddEditProduct.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

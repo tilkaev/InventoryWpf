@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InventoryWpf.View;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -37,9 +38,11 @@ namespace InventoryWpf
             }
 
 
-
             comboBoxUsers.SelectedIndex = 0;
             passwordBox.Password = "admin";
+
+            var win = new AddEditProduct();
+            win.ShowDialog();
         }
 
 

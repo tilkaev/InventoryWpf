@@ -68,6 +68,7 @@
                       materialDesign:TextFieldAssist.HasClearButton="True"
                       IsEditable="True"
                       Grid.Row="1"
+                      Margin="20 0"
                       VerticalContentAlignment="Center"
                       x:Name="comboBoxCategory"
                       Width="180"
@@ -76,10 +77,17 @@
                       Padding="0 0 10 0"
                       SelectionChanged="Search_Changed"/>
 
+            <CheckBox Margin="10 0"
+                      Content="Только в наличии"
+                      Padding="5 0"
+                      Background="#171E45"
+                      />
+
             <StackPanel HorizontalAlignment="Right"
                         Orientation="Horizontal">
 
                 <Button x:Name="btnAdd"
+                        Click="btnAdd_Click"
                         Style="{x:Null}"
                         Background="Transparent"
                         BorderThickness="0"
@@ -126,21 +134,28 @@
         </DockPanel>
 
 
-        <DataGrid Grid.Row="1"
-                  MouseDoubleClick="main_data_grid_MouseDoubleClick"
-                  x:Name="main_data_grid"
-                  ColumnWidth="*"
-                  MinRowHeight="18"
-                  IsReadOnly="True"
-                  SelectionMode="Single"
-                  Background="Transparent"
-                  BorderBrush="#171E45  "
-                  RowBackground="#C8DE95 "
-                  AlternatingRowBackground="Transparent"
-                  HorizontalGridLinesBrush="#4F8B5C   "
-                  FontSize="12"
-                  GridLinesVisibility="Horizontal">
-
-        </DataGrid>
+        <Border Grid.Row="1"
+                Margin="10 0 10 10"
+                Background="AliceBlue"
+                CornerRadius="5"
+                BorderThickness="1"
+                BorderBrush="#171E45">
+            <DataGrid
+                      MouseDoubleClick="main_data_grid_MouseDoubleClick"
+                      x:Name="main_data_grid"
+                      ColumnWidth="*"
+                      MinRowHeight="18"
+                      IsReadOnly="True"
+                      SelectionMode="Single"
+                      Background="Transparent"
+                      BorderBrush="#171E45"
+                      RowBackground="#C8DE95 "
+                      AlternatingRowBackground="Transparent"
+                      HorizontalGridLinesBrush="#4F8B5C"
+                      FontSize="12"
+                      GridLinesVisibility="Horizontal" />
+        </Border>
+        
+        
     </Grid>
 </Page>
