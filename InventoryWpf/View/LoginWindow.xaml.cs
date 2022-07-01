@@ -1,4 +1,5 @@
-﻿using InventoryWpf.View;
+﻿using InventoryWpf.Core;
+using InventoryWpf.View;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,7 +42,7 @@ namespace InventoryWpf
             comboBoxUsers.SelectedIndex = 0;
             passwordBox.Password = "admin";
 
-            var win = new AddEditProduct();
+            var win = new ProductSearch();
             win.ShowDialog();
         }
 
@@ -108,6 +109,7 @@ namespace InventoryWpf
 
             if (dt.Rows.Count != 0)
             {
+                Controller.IdAuthorizedEmployee = (int)dt.Rows[0][0];
                 Show_Win(new MainWindow());
             }
             else

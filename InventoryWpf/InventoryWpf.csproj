@@ -64,14 +64,24 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Core\Controller.cs" />
     <Compile Include="Core\PagesController.cs" />
     <Compile Include="Core\SearcherDataTable.cs" />
-    <Compile Include="Pages\PageProdacts.xaml.cs">
-      <DependentUpon>PageProdacts.xaml</DependentUpon>
+    <Compile Include="Pages\AddEditSale.xaml.cs">
+      <DependentUpon>AddEditSale.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageProducts.xaml.cs">
+      <DependentUpon>PageProducts.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageSales.xaml.cs">
+      <DependentUpon>PageSales.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="View\AddEditProduct.xaml.cs">
       <DependentUpon>AddEditProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\ProductSearch.xaml.cs">
+      <DependentUpon>ProductSearch.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Window1.xaml.cs">
       <DependentUpon>Window1.xaml</DependentUpon>
@@ -85,7 +95,15 @@
     <Compile Include="View\Window4.xaml.cs">
       <DependentUpon>Window4.xaml</DependentUpon>
     </Compile>
-    <Page Include="Pages\PageProdacts.xaml">
+    <Page Include="Pages\AddEditSale.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageProducts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageSales.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -110,6 +128,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Theme\LeftMenuButtonTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\ProductSearch.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

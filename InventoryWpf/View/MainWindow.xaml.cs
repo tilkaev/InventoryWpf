@@ -1,4 +1,5 @@
 ﻿using InventoryWpf.Core;
+using InventoryWpf.Pages;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -50,12 +51,6 @@ namespace InventoryWpf
             }
         }
 
-        private void CommentTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-
         private void btnWindowMinimize_Click(object sender, RoutedEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
@@ -87,12 +82,11 @@ namespace InventoryWpf
                     pagesController.NewPage(new PageInventory());
                     break;
                 case 2:
-                    pagesController.NewPage(new PageInventory());
+                    pagesController.NewPage(new PageSale());
                     break;
             }
 
         }
 
-        
     }
 }

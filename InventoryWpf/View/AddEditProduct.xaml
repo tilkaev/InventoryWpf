@@ -35,7 +35,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="65" />
                 <RowDefinition />
-                <RowDefinition Height="70" />
+                <RowDefinition Height="60" />
             </Grid.RowDefinitions>
 
 
@@ -56,6 +56,7 @@
                                                  Foreground="#fff"
                                                  Margin="5" />
                         <Label Content="Товар (создание)"
+                               x:Name="labelTop"
                                VerticalAlignment="Center"
                                Foreground="#fff" />
                     </StackPanel>
@@ -103,6 +104,27 @@
                             <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush"
                                     Value="#515151" />
                         </Style>
+                        
+                        <Style TargetType="ComboBox"
+                               x:Key="ComboBoxNormal"
+                               BasedOn="{StaticResource MaterialDesignComboBox}">
+                            <Setter Property="FontSize"
+                                    Value="14" />
+                            <Setter Property="Margin"
+                                    Value="0 7 0 0" />
+                            <Setter Property="Padding"
+                                    Value="5 0 10 0" />
+                            <Setter Property="VerticalContentAlignment"
+                                    Value="Center" />
+                            <Setter Property="BorderBrush"
+                                    Value="Gray" />
+                            <Setter Property="BorderThickness"
+                                    Value="1" />
+                            <Setter Property="Height"
+                                    Value="30" />
+                            <Setter Property="materialDesign:TextFieldAssist.UnderlineBrush"
+                                    Value="#515151" />
+                        </Style>
                     </StackPanel.Resources>
 
 
@@ -117,8 +139,8 @@
                     <TextBlock Text="Категория"
                                Style="{StaticResource TextBlockNormal}" />
 
-                    <ComboBox x:Name="textBox2"
-                              Height="35" />
+                    <ComboBox x:Name="comboBox2"
+                              Style="{StaticResource ComboBoxNormal}"/>
 
                     <TextBlock Text="Цена"
                                Style="{StaticResource TextBlockNormal}" />
@@ -135,13 +157,16 @@
             <Border Grid.Row="2"
                     Background="#fff"
                     CornerRadius="0 0 5 5">
-                <StackPanel Margin="10 15"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Top"
+                            Margin="-5 0 0 0">
 
 
 
                     <Button Content="Создать"
+                            x:Name="btnOk"
+                            Click="btnOk_Click"
                             Background="Transparent"
                             Margin="5 5 0 0"
                             FontFamily="Roboto"
@@ -151,6 +176,8 @@
                             Width="110" />
 
                     <Button Content="Отмена"
+                            x:Name="btnCancel"
+                            Click="btnCancel_Click"
                             Background="Transparent"
                             Margin="25 5 0 0"
                             FontFamily="Roboto"
