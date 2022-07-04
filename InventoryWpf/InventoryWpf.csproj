@@ -70,11 +70,21 @@
     <Compile Include="Pages\AddEditSale.xaml.cs">
       <DependentUpon>AddEditSale.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Pages\PageEmployee.xaml.cs">
+      <DependentUpon>PageEmployee.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PageOrder.xaml.cs">
+      <DependentUpon>PageOrder.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\PageProducts.xaml.cs">
       <DependentUpon>PageProducts.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PageSales.xaml.cs">
       <DependentUpon>PageSales.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SaleDetails.cs" />
+    <Compile Include="Pages\PageSuppliers.xaml.cs">
+      <DependentUpon>PageSuppliers.xaml</DependentUpon>
     </Compile>
     <Compile Include="SQL.cs" />
     <Compile Include="View\AddEditProduct.xaml.cs">
@@ -99,11 +109,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\PageEmployee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\PageProducts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PageSales.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PageSuppliers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -179,6 +201,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('..\packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

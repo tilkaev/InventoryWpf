@@ -16,7 +16,7 @@ namespace InventoryWpf.Core
         public InvokeSave invokeSave;
 
 
-        Frame mainFrame;
+        public Frame mainFrame;
         Page currentPage;
 
         public PagesController(Frame frame)

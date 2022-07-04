@@ -42,8 +42,6 @@ namespace InventoryWpf
             comboBoxUsers.SelectedIndex = 0;
             passwordBox.Password = "admin";
 
-            var win = new ProductSearch();
-            win.ShowDialog();
         }
 
 

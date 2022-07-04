@@ -140,7 +140,7 @@
                                      Click="Button_ClickCreatePage"
                                      Template="{StaticResource ResourceKey=LeftMenuButton}" />
                     </Grid>
-                    <Grid>
+                    <Grid  Visibility="Collapsed">
                         <materialDesign:PackIcon Kind="FileChart"
                                                  Style="{StaticResource IconStyleLeft}" />
                         <RadioButton Content="Отчеты"

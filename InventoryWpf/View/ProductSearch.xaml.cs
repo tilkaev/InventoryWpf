@@ -1,4 +1,6 @@
-﻿using System;
+﻿using InventoryWpf.Core;
+using InventoryWpf.Pages;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -56,23 +58,19 @@ where товары.идкатегории = категориитоваров.и�
             }
         }
 
-        private void btnOk_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
+        
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void dataGridMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
+            var index = dataGridMain.SelectedIndex;
+
+            AddEditSale.AddTovar(dataTableMain.Rows[index]);
 
         }
     }

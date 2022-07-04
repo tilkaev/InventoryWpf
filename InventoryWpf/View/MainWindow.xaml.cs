@@ -24,15 +24,14 @@ namespace InventoryWpf
 
     public partial class MainWindow : Window
     {
-        PagesController pagesController;
 
 
         public MainWindow()
 
         {
             InitializeComponent();
-            pagesController = new PagesController(mainFrame);
-            pagesController.NewPage(new PageInventory());
+            Controller.Pages = new PagesController(mainFrame);
+            Controller.Pages.NewPage(new PageInventory());
 
         }
 
@@ -79,10 +78,19 @@ namespace InventoryWpf
             switch (indexButton)
             {
                 case 1:
-                    pagesController.NewPage(new PageInventory());
+                    Controller.Pages.NewPage(new PageInventory());
                     break;
                 case 2:
-                    pagesController.NewPage(new PageSale());
+                    Controller.Pages.NewPage(new PageSale());
+                    break;
+                case 3:
+                    Controller.Pages.NewPage(new PageOrder());
+                    break;
+                case 4:
+                    Controller.Pages.NewPage(new PageEmployee());
+                    break;
+                case 5:
+                    Controller.Pages.NewPage(new PageSuppliers());
                     break;
             }
 

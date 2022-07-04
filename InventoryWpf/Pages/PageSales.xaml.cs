@@ -35,9 +35,7 @@ namespace InventoryWpf.Pages
 
         async void UpdateTable()
         {
-            var inquiry = @"select продажа.идпродажи, concat('Продажа #', продажа.идпродажи) 'Номер накладной', FORMAT( продажа.датапродажи, 'dd.MM.yyyy', 'zh-cn' )  'Дата продажи', FORMAT(sum(цена), 'N', 'en-us') 'Сумма' from деталипродажа
-JOIN продажа ON продажа.идпродажи = деталипродажа.идпродажи
-group by продажа.идпродажи, датапродажи";
+            var inquiry = @"select продажа.идпродажи, concat('Продажа #', продажа.идпродажи) 'Номер накладной', FORMAT( продажа.датапродажи, 'dd.MM.yyyy', 'zh-cn' )  'Дата продажи', FORMAT(sum(цена*количество), 'N', 'en-us') 'Сумма' from деталипродажа JOIN продажа ON продажа.идпродажи = деталипродажа.идпродажи group by продажа.идпродажи, датапродажи";
 
             SQL.SQLConnect();
             SearchTextBox.Text = "";
@@ -61,7 +59,7 @@ group by продажа.идпродажи, датапродажи";
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-
+            Controller.Pages.NewPage(new AddEditSale());
         }
 
         private void btnDel_Click(object sender, RoutedEventArgs e)
@@ -89,18 +87,12 @@ group by продажа.идпродажи, датапродажи";
 
         private void dataGridMain_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            /*
+            
             if (dataGridMain.SelectedIndex == -1)
                 return;
             var index = (int)newDataTable.Rows[dataGridMain.SelectedIndex][0];
 
-            var win = new AddEditProduct(index);
-            win.ShowDialog();
-
-            if (win.result)
-            {
-                UpdateTable();
-            }*/
+            Controller.Pages.NewPage(new AddEditSale(index));
         }
     }
 }
