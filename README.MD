@@ -1,15 +1,16 @@
+
 # InventoryWpf
 
-Окно авторизации
+РћРєРЅРѕ Р°РІС‚РѕСЂРёР·Р°С†РёРё
 
 ![login_window](https://raw.githubusercontent.com/tilkaev/InventoryWpf/master/Image/exampleLoginWindow.png)
 
 
-Основное окно программы со страницей "Товары"
+РћСЃРЅРѕРІРЅРѕРµ РѕРєРЅРѕ РїСЂРѕРіСЂР°РјРјС‹ СЃРѕ СЃС‚СЂР°РЅРёС†РµР№ "РўРѕРІР°СЂС‹"
 
 ![main_window_page_products](https://raw.githubusercontent.com/tilkaev/InventoryWpf/master/Image/exampleMainWindowPageProducts.png)
 
 
-Страница "Продажи"
+РЎС‚СЂР°РЅРёС†Р° "РџСЂРѕРґР°Р¶Рё"
 
 ![page_sales](https://raw.githubusercontent.com/tilkaev/InventoryWpf/master/Image/examplePageSales.png)
